@@ -284,6 +284,16 @@ class Mod_esptpd extends CI_Model
 
         $billing_code = $prefix . $stamp1 . $unique_part . $stamp2;
 
+        $this->db->select('kode_billing');
+        $this->db->where("kode_billing", $billing_code);
+        $this->db->from('spt');
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            // Jika kode sudah ada, panggil fungsi lagi untuk menghasilkan kode baru
+            return $this->generate_billing($doc_type, $collection_type);
+        }
+
         return $billing_code;
     }
 
