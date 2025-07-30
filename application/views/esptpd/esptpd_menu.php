@@ -40,11 +40,18 @@
                             //             </td>
                             //         </tr>";
                             // }
-                            echo "<td align='center'>
+                            if ($row->nama == 'APRILLIA NDARI ANGGRAINI (WARUNG BAMBU BAROKAH) CATERING') {
+                                echo "<td align='center'>
+                                        <a href=" . base_url('esptpd/billing/') . $row->wp_wr_detil_id . " class='btn btn-sm btn-outline-success _lapor'><i class='fa fa-info'></i> Detil </a>&nbsp;
+                                        </td>
+                                    </tr>";
+                            } else {
+                                echo "<td align='center'>
                                         <a href=" . base_url('esptpd/billing/') . $row->wp_wr_detil_id . " class='btn btn-sm btn-outline-success _lapor'><i class='fa fa-info'></i> Detil </a>&nbsp;
                                         <button   onclick=\"window.location='" . base_url('esptpd/add/') . $row->wp_wr_detil_id . "'\"  class='btn btn-sm btn-outline-info _lapor'><i class='fa fa-edit'></i> Input SPTPD</button>
                                         </td>
                                     </tr>";
+                            }
                         }
                         ?>
 

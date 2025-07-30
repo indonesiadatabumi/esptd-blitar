@@ -40,7 +40,9 @@ class Mod_esptpd extends CI_Model
         $this->db->select('a.wp_wr_id, a.npwprd, a.pajak_id, b. wp_wr_detil_id, b.nama');
         $this->db->join('wp_wr_detil b', 'a.wp_wr_id=b.wp_wr_id');
         $this->db->where("a.npwprd", $this->session->userdata('username'));
-        $this->db->where("b.kegus_id !=", '8');
+        if ($this->session->userdata('username') != '220.004.02.02.0001') {
+            $this->db->where("b.kegus_id !=", '8');
+        }
         $this->db->from('wp_wr a');
 
         $query = $this->db->get();
