@@ -408,6 +408,10 @@ class Esptpd extends MY_Controller
             $jml_denda = $this->fungsi->denda($tgljatuhtempo, $tgl_setor, $billing->spt_pajak);
         }
 
+        if (date('Y-m-d') >= '2025-08-01' && date('Y-m-d') <= '2025-09-30') {
+            $jml_denda = 0;
+        }
+
         $bln = date("n", strtotime($billing->spt_periode_jual1));
 
         if ($billing->spt_pajak < 10) {
@@ -458,6 +462,10 @@ class Esptpd extends MY_Controller
                 $jml_denda = $this->fungsi->denda2($t_entry, date("Y-m-d"), $billing->pajak);
             } else {
                 $jml_denda = $this->fungsi->denda($t_entry, date("Y-m-d"), $billing->pajak);
+            }
+
+            if (date('Y-m-d') >= '2025-08-01' && date('Y-m-d') <= '2025-09-30') {
+                $jml_denda = 0;
             }
 
             if ($billing->status_bayar == 0) {
@@ -577,6 +585,10 @@ class Esptpd extends MY_Controller
             $jml_denda = $this->fungsi->denda($tgljatuhtempo, $tgl_setor, $billing->spt_pajak);
         }
 
+        if (date('Y-m-d') >= '2025-08-01' && date('Y-m-d') <= '2025-09-30') {
+            $jml_denda = 0;
+        }
+
         $bln = date("n", strtotime($billing->spt_periode_jual1));
 
         if ($billing->spt_pajak < 10) {
@@ -676,6 +688,10 @@ class Esptpd extends MY_Controller
             // }
 
             $jml_denda = $this->fungsi->denda($t_entry, date("Y-m-d"), $biling->pajak);
+
+            if (date('Y-m-d') >= '2025-08-01' && date('Y-m-d') <= '2025-09-30') {
+                $jml_denda = 0;
+            }
 
             if ($biling->status_bayar == 0) {
                 $denda = $jml_denda;
