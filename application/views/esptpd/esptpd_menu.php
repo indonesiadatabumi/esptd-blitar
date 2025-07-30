@@ -40,7 +40,7 @@
                             //             </td>
                             //         </tr>";
                             // }
-                            if ($row->nama == 'APRILLIA NDARI ANGGRAINI (WARUNG BAMBU BAROKAH) CATERING') {
+                            if ($row->wp_wr__detil_id == '1614') {
                                 echo "<td align='center'>
                                         <a href=" . base_url('esptpd/billing/') . $row->wp_wr_detil_id . " class='btn btn-sm btn-outline-success _lapor'><i class='fa fa-info'></i> Detil </a>&nbsp;
                                         </td>
