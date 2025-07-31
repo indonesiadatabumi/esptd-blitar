@@ -455,7 +455,7 @@ class Esptpd extends MY_Controller
         $list = $this->Mod_esptpd->getPrint($spt_id);
         foreach ($list as $billing) {
             $tgljatuhtempo = date('Y-m-d', strtotime('+1 month', strtotime($billing->masa_pajak1)));
-            $t_entry = date("Y-m-30", strtotime($tgljatuhtempo));
+            $t_entry = date("Y-m-t", strtotime($tgljatuhtempo));
             $sanksi_lapor = 0;
 
             if ($billing->pajak_id == '6') {
@@ -662,30 +662,8 @@ class Esptpd extends MY_Controller
             $no++;
             $tgljatuhtempo = date('Y-m-d', strtotime('+1 month', strtotime($biling->masa_pajak1)));
             $explode = explode('-', $biling->masa_pajak1);
-            $t_entry = date("Y-m-30", strtotime($tgljatuhtempo));
+            $t_entry = date("Y-m-t", strtotime($tgljatuhtempo));
             $sanksi_lapor = 0;
-
-            // if ($explode[0] <= '2023' && $explode[1] <= '12') {
-            //     $t_entry = date("Y-m-30", strtotime($tgljatuhtempo));
-            //     $sanksi_lapor = 0;
-            // } else {
-            //     $t_entry = date("Y-m-10", strtotime($tgljatuhtempo));
-            //     $pajak_lalu = date('Y-m-d', strtotime('-1 month', strtotime($biling->masa_pajak1)));
-            //     $explode_pajak_lalu = explode('-', $pajak_lalu);
-
-            //     if ($explode_pajak_lalu[0] <= '2023' && $explode_pajak_lalu[1] <= '12') {
-            //         $sanksi_lapor = 0;
-            //     } else {
-            //         $cek_lapor_pajak = $this->Mod_esptpd->cek_lapor_pajak($pajak_lalu);
-            //         $tgl_lapor_lalu = date('d', strtotime($cek_lapor_pajak->tgl_proses));
-
-            //         if ($tgl_lapor_lalu == null || $tgl_lapor_lalu > '15') {
-            //             $sanksi_lapor = 100000;
-            //         } else {
-            //             $sanksi_lapor = 0;
-            //         }
-            //     }
-            // }
 
             $jml_denda = $this->fungsi->denda($t_entry, date("Y-m-d"), $biling->pajak);
 
